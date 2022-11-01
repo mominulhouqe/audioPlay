@@ -1,15 +1,19 @@
+var buttons = document.querySelectorAll(".mybutton");
 
-for(var i = 0; i<7; i++){
 
-  document.querySelector(".mybutton")[i].addEventListener("click",function(){
-    var text = this.innerHTML;
-    console.log(text);
-    playSound(text);
+for(var i = 0; i<buttons.length; i++){
+
+  buttons[i].addEventListener("click",function(){
+
+    var buttonInnerHTML = this.innerHTML;
+    makeSound(buttonInnerHTML);
+
+
   });
   
 }
-function playSound(){
-  switch(text){
+function makeSound(key){
+  switch(key){
     case "A" : 
     var audio = new Audio("audios/a.mp3");
     audio.play();
@@ -27,6 +31,8 @@ function playSound(){
     var audio = new Audio("audios/d.mp3");
     audio.play();
     break;
+    default:
+      console.log(key);
   }
 }
 
